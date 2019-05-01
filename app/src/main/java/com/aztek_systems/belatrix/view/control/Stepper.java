@@ -51,11 +51,6 @@ public class Stepper extends ConstraintLayout {
         }
 
         attributes.recycle();
-
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        inflater.inflate(R.layout.stepper, null);
     }
 
     public void generateSteps(CharSequence[] stepArray) {

@@ -8,8 +8,9 @@
 
     <Button
         android:id="@+id/buttonShake"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/shake"
         android:text="Shake"
         android:onClick="goToShake"
         app:layout_constraintBottom_toTopOf="@id/buttonCompass"
@@ -19,8 +20,9 @@
 
     <Button
         android:id="@+id/buttonCompass"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/compass"
         android:text="Compass"
         android:onClick="goToCompass"
         app:layout_constraintBottom_toBottomOf="@id/buttonVerticalStepper"
@@ -30,9 +32,10 @@
 
     <Button
         android:id="@+id/buttonVerticalStepper"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Stepper V"
+        android:drawableLeft="@drawable/steps"
+        android:text="Stepper Vertical"
         android:onClick="goToVerticalStepper"
         app:layout_constraintBottom_toBottomOf="@id/buttonHorizontalStepper"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -41,9 +44,10 @@
 
     <Button
         android:id="@+id/buttonHorizontalStepper"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Stepper H"
+        android:drawableLeft="@drawable/stepper_h"
+        android:text="Stepper Horizontal"
         android:onClick="goToHorizontalStepper"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

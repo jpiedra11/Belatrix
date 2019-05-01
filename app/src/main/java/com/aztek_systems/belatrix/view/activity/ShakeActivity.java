@@ -17,8 +17,14 @@ public class ShakeActivity extends Activity implements SensorEventListener {
     Sensor accelerometer;
     Sensor magnetSensor;
 
-    boolean downCompleted = false;
-    boolean upCompleted = false;
+    boolean downXCompleted = false;
+    boolean upXCompleted = false;
+
+    boolean downYCompleted = false;
+    boolean upYCompleted = false;
+
+    boolean downZCompleted = false;
+    boolean upZCompleted = false;
 
     boolean isFirstTime = true;
 
@@ -72,17 +78,37 @@ public class ShakeActivity extends Activity implements SensorEventListener {
                 isFirstTime = false;
             } else {
 
-                if (current_x - first_x < -3 || current_y - first_y < -3 || current_z - first_z < -3) {
+                if (current_x - first_x < -1) {
 
-                    downCompleted = true;
+                    downXCompleted = true;
                 }
 
-                if (current_x - first_x > 3 || current_y - first_y > 3 || current_z - first_z > 3) {
+                if (current_x - first_x > 1) {
 
-                    upCompleted = true;
+                    upXCompleted = true;
                 }
 
-                if (upCompleted && downCompleted) {
+                if (current_y - first_y < -1) {
+
+                    downZCompleted = true;
+                }
+
+                if (current_y - first_y > 1) {
+
+                    upYCompleted = true;
+                }
+
+                if (current_z - first_z < -1) {
+
+                    downZCompleted = true;
+                }
+
+                if (current_z - first_z > 1) {
+
+                    upZCompleted = true;
+                }
+
+                if ((upXCompleted && downXCompleted) || (upYCompleted && downYCompleted) || (upZCompleted && downZCompleted)) {
 
                     Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -90,8 +116,15 @@ public class ShakeActivity extends Activity implements SensorEventListener {
 
                         vibrator.vibrate(100);
 
-                        upCompleted = false;
-                        downCompleted = false;
+                        downXCompleted = false;
+                        upXCompleted = false;
+
+                        downYCompleted = false;
+                        upYCompleted = false;
+
+                        downZCompleted = false;
+                        upZCompleted = false;
+
                         isFirstTime = true;
                     }
                 }
